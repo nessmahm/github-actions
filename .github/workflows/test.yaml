@@ -15,3 +15,14 @@ jobs:
         run: npm install
       - name: Run Vitest
         run: npm run test  # Assuming `npm run test` runs Vitest with coverage
+
+      # SonarQube scanner
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=zairi-maissene
+            -Dsonar.organization=Maissene Zairi
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info

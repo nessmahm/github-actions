@@ -8,6 +8,11 @@ export default defineConfig({
     port: 9090,
     strictPort: true,
   },
+  test: {
+    coverage: {
+      reporter: ['text', 'lcov']
+    }
+  },
   server: {
     port: 9090,
     strictPort: true,
